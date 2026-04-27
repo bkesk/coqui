@@ -53,7 +53,7 @@ set (LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib CACHE PATH "Library directory
 set (EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin CACHE PATH "Binary directory.")
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
-include_directories( ${PROJECT_SOURCE_DIR}/src ${PROJECT_BINARY_DIR}/src )
+include_directories( SYSTEM ${PROJECT_SOURCE_DIR}/src ${PROJECT_BINARY_DIR}/src )
 
 ######################################################################
 # CUDA/HIP build options. Read first, to be able to set policies! 
