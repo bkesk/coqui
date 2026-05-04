@@ -16,18 +16,19 @@ svo_mf = coqui.make_mf(mpi, params=mf_params, mf_type="qe")
 
 # construct thc handler and compute the thc integrals during initialization
 eri_params = {
-    "ecut": svo_mf.ecutwfc()*1.2,
-    "thresh": 1e-3,
+    "ecut": svo_mf.ecutrho()*0.4,
+    "thresh": 1e-5,
 }
 svo_thc = coqui.make_thc_coulomb(mf=svo_mf, params=eri_params)
 
 # GW
 gw_params = {
     "beta": 200,
-    "wmax": 3.0,
-    "iaft_prec": "medium",
+    "iaft": {
+        "prec": "medium"
+    },
     "niter": 4,
-    "output": "svo_gw",
+    "output": "svo.gw",
     "iter_alg": {
         "alg": "damping",
         "mixing": 0.7
